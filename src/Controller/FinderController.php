@@ -177,7 +177,7 @@ class FinderController extends ControllerBase {
                     }
                     
 
-                    $field_config = \Drupal::entityManager()->getStorage('field_config')->load("paragraph" . '.' . "service_paragraphs" . '.' . $machine_name)->toArray();
+                    $field_config = \Drupal::entityTypeManager()->getStorage('field_config')->load("paragraph" . '.' . "service_paragraphs" . '.' . $machine_name)->toArray();
 
                     $field_data["label"] = $field_config["label"];
                     $field_data["weight"] = $pdcontent[$machine_name]["weight"];
