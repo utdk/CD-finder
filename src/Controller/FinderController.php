@@ -306,11 +306,11 @@ class FinderController extends ControllerBase {
         $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 
         if ($result['result'] !== true) {
-          drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
+          \Drupal::messenger()->addMessage($this->t('There was a problem sending your message and it was not sent.'), 'error');
           return new JsonResponse("problem");
         }
         else {
-          drupal_set_message(t('Your message has been sent.'));
+          \Drupal::messenger()->addMessage($this->t('Your message has been sent.'));
           return new JsonResponse("success");
         }
 
